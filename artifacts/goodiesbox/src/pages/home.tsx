@@ -13,20 +13,20 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-24 pb-32">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7B2FBE]/20 blur-[120px] rounded-full pointer-events-none" />
-        
+      <section className="relative overflow-hidden pt-20 pb-28">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#7B2FBE]/20 blur-[120px] rounded-full pointer-events-none" />
+
         <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-[#00E5FF]"
+            className="inline-block mb-6 px-4 py-1.5 rounded-full bg-[#FF3CAC]/10 border border-[#FF3CAC]/30 text-sm font-bold text-[#FF3CAC] uppercase tracking-widest"
           >
-            Welcome to the Beta Testnet 🚀
+            Beta Testnet Live - 2026
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -36,17 +36,17 @@ export default function Home() {
             <span className="text-gradient-primary">COLLECT CARDS.</span><br />
             WIN PRIZES.
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            GoodiesBox is the premiere Web3 prediction card platform. Open mystery packs, collect prediction cards, and compete in contests.
+            GoodiesBox is the Web3 prediction card platform built for 2026. Open mystery packs, collect prediction cards, and compete in contests on Solana Devnet and EVM testnets.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -69,17 +69,17 @@ export default function Home() {
       {/* Stats Bar */}
       <section className="border-y border-border/40 bg-black/50 backdrop-blur-sm py-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border/40">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-border/40">
             <div className="pt-4 md:pt-0">
-              <div className="text-4xl font-black text-[#00E5FF] mb-2">12,450+</div>
+              <div className="text-4xl font-black text-[#00E5FF] mb-2">47,800+</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Packs Opened</div>
             </div>
-            <div className="pt-8 md:pt-0">
-              <div className="text-4xl font-black text-[#FF3CAC] mb-2">37,350</div>
+            <div className="pt-6 md:pt-0">
+              <div className="text-4xl font-black text-[#FF3CAC] mb-2">143,400</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Cards Minted</div>
             </div>
-            <div className="pt-8 md:pt-0">
-              <div className="text-4xl font-black text-[#7B2FBE] mb-2">$45,000</div>
+            <div className="pt-6 md:pt-0">
+              <div className="text-4xl font-black text-[#7B2FBE] mb-2">$180,000</div>
               <div className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Prize Pool Value</div>
             </div>
           </div>
@@ -87,18 +87,18 @@ export default function Home() {
       </section>
 
       {/* How it Works */}
-      <section className="py-24 relative">
+      <section className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-black mb-4">How It Works</h2>
-            <p className="text-muted-foreground">3 simple steps to start winning.</p>
+            <p className="text-muted-foreground">3 simple steps to start winning on testnet.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { icon: Wallet, title: "1. Connect Wallet", desc: "Connect Phantom or MetaMask to join the beta.", color: "#00E5FF" },
-              { icon: Box, title: "2. Open Packs", desc: "Buy packs to reveal mystery prediction cards.", color: "#FF3CAC" },
-              { icon: Trophy, title: "3. Enter Contests", desc: "Use your cards to predict outcomes and win.", color: "#7B2FBE" },
+              { icon: Wallet, title: "1. Connect Wallet", desc: "Connect Phantom or MetaMask to join the beta testnet.", color: "#00E5FF" },
+              { icon: Box, title: "2. Open Packs", desc: "Buy packs to reveal 2026 mystery prediction cards.", color: "#FF3CAC" },
+              { icon: Trophy, title: "3. Enter Contests", desc: "Use your cards to predict outcomes and win testnet prizes.", color: "#7B2FBE" },
             ].map((step, i) => (
               <div key={i} className="bg-card border border-border/50 rounded-2xl p-8 text-center relative overflow-hidden group">
                 <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: step.color }} />
@@ -114,26 +114,26 @@ export default function Home() {
       </section>
 
       {/* Featured Cards */}
-      <section className="py-24 bg-black/30 border-y border-border/40">
+      <section className="py-20 bg-black/30 border-y border-border/40">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
             <div>
               <h2 className="text-3xl md:text-5xl font-black mb-4">Hot Predictions</h2>
-              <p className="text-muted-foreground">The most traded cards right now.</p>
+              <p className="text-muted-foreground">The most traded 2026 prediction cards right now.</p>
             </div>
-            <Link href="/marketplace" className="hidden md:flex items-center gap-2 text-[#00E5FF] hover:underline font-medium">
+            <Link href="/marketplace" className="hidden md:flex items-center gap-2 text-[#00E5FF] hover:underline font-medium flex-shrink-0">
               View All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {featuredCards.map((card) => (
               <CardHover key={card.id}>
                 <PredictionCard card={card} />
               </CardHover>
             ))}
           </div>
-          
+
           <div className="mt-8 text-center md:hidden">
             <Link href="/marketplace">
               <Button variant="outline" className="w-full">View All Cards</Button>

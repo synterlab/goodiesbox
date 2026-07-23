@@ -6,8 +6,8 @@ export default function Privacy() {
       <div className="pt-16 pb-24">
         <div className="container mx-auto px-4 max-w-3xl prose prose-invert prose-p:text-muted-foreground prose-a:text-[#FF3CAC]">
           <h1 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tight">Privacy Policy</h1>
-          <p className="text-sm text-muted-foreground">Last Updated: October 24, 2024</p>
-          
+          <p className="text-sm text-muted-foreground">Last Updated: January 15, 2026</p>
+
           <div className="mt-8 space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">1. Data Collection</h2>
@@ -42,7 +42,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">4. Cookies & Local Storage</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">4. Cookies and Local Storage</h2>
               <p>
                 The Platform uses local storage and session cookies to maintain your connection state, remember your theme preferences, and keep you logged in. We do not use third-party tracking cookies for advertising purposes.
               </p>
@@ -51,7 +51,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">5. Third Parties</h2>
               <p>
-                We may share non-personally identifiable information with analytics providers to understand how the Platform is used. We do not sell your personal data to third parties. Our Platform integrates with RPC providers (e.g., Solana Devnet endpoints, Infura) which may collect IP addresses as per their own privacy policies.
+                We may share non-personally identifiable information with analytics providers to understand how the Platform is used. We do not sell your personal data to third parties. Our Platform integrates with RPC providers (Solana Devnet endpoints, Infura) which may collect IP addresses as per their own privacy policies.
               </p>
             </section>
 

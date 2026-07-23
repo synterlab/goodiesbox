@@ -11,13 +11,14 @@ export interface Pack {
   gradientFrom: string;
   gradientTo: string;
   glowColor: string;
+  imageUrl: string;
 }
 
 export const mockPacks: Pack[] = [
   {
     id: "pack-1",
-    name: "Crypto Summer Alpha",
-    description: "Contains 3 cards predicting major crypto events in Q3/Q4. High chance of Epic pulls.",
+    name: "Crypto Alpha 2026",
+    description: "Contains 3 cards predicting major crypto events in 2026. High chance of Epic pulls.",
     theme: "Crypto",
     rarity: "Premium",
     priceSOL: 1.5,
@@ -27,10 +28,11 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#00E5FF",
     gradientTo: "#7B2FBE",
     glowColor: "rgba(0, 229, 255, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=600&q=80&fit=crop",
   },
   {
     id: "pack-2",
-    name: "Sports Legends 2024",
+    name: "Sports Legends 2026",
     description: "Your ticket to major sporting event predictions. Guaranteed 1 Rare or higher.",
     theme: "Sports",
     rarity: "Standard",
@@ -41,6 +43,7 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#FF3CAC",
     gradientTo: "#2B86C5",
     glowColor: "rgba(255, 60, 172, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1566132127697-4524fea60007?w=600&q=80&fit=crop",
   },
   {
     id: "pack-3",
@@ -55,11 +58,12 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#FFD700",
     gradientTo: "#FF8C00",
     glowColor: "rgba(255, 215, 0, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80&fit=crop",
   },
   {
     id: "pack-4",
     name: "Pop Culture Mystery",
-    description: "Oscars, Box Office, and Celebrity drama. Open to reveal entertainment predictions.",
+    description: "Oscars, Box Office, and award show drama. Open to reveal entertainment predictions.",
     theme: "Entertainment",
     rarity: "Standard",
     priceSOL: 0.4,
@@ -69,11 +73,12 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#14F195",
     gradientTo: "#00E5FF",
     glowColor: "rgba(20, 241, 149, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80&fit=crop",
   },
   {
     id: "pack-5",
     name: "Crypto Degens",
-    description: "High risk, high reward predictions on meme coins and obscure L1s.",
+    description: "High risk, high reward predictions on DeFi tokens and emerging L1s.",
     theme: "Crypto",
     rarity: "Legendary",
     priceSOL: 3.5,
@@ -83,11 +88,12 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#9945FF",
     gradientTo: "#14F195",
     glowColor: "rgba(153, 69, 255, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=80&fit=crop",
   },
   {
     id: "pack-6",
-    name: "E-Sports Arena",
-    description: "Predictions for major tournaments across LoL, CS2, and Valorant.",
+    name: "E-Sports Arena 2026",
+    description: "Predictions for major tournaments across LoL, CS2, and Valorant in 2026.",
     theme: "Gaming",
     rarity: "Premium",
     priceSOL: 1.0,
@@ -97,11 +103,12 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#FF7E5F",
     gradientTo: "#FEB47B",
     glowColor: "rgba(255, 126, 95, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=600&q=80&fit=crop",
   },
   {
     id: "pack-7",
     name: "Gridiron Glory",
-    description: "NFL focused predictions for the upcoming season.",
+    description: "NFL focused predictions for the 2025-26 season playoffs and Super Bowl LX.",
     theme: "Sports",
     rarity: "Premium",
     priceSOL: 1.2,
@@ -111,11 +118,12 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#8E44AD",
     gradientTo: "#2980B9",
     glowColor: "rgba(142, 68, 173, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80&fit=crop",
   },
   {
     id: "pack-8",
     name: "Blockbuster Bets",
-    description: "Box office opening weekend predictions for major releases.",
+    description: "Box office opening weekend predictions for the biggest 2026 releases.",
     theme: "Entertainment",
     rarity: "Standard",
     priceSOL: 0.3,
@@ -125,5 +133,6 @@ export const mockPacks: Pack[] = [
     gradientFrom: "#E74C3C",
     gradientTo: "#F39C12",
     glowColor: "rgba(231, 76, 60, 0.5)",
+    imageUrl: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=600&q=80&fit=crop",
   }
 ];

@@ -6,13 +6,13 @@ export default function Terms() {
       <div className="pt-16 pb-24">
         <div className="container mx-auto px-4 max-w-3xl prose prose-invert prose-p:text-muted-foreground prose-a:text-[#00E5FF]">
           <h1 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tight">Terms of Service</h1>
-          <p className="text-sm text-muted-foreground">Last Updated: October 24, 2024</p>
-          
+          <p className="text-sm text-muted-foreground">Last Updated: January 15, 2026</p>
+
           <div className="mt-8 space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">1. Acceptance of Terms</h2>
               <p>
-                By accessing or using GoodiesBox (the "Platform"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Platform. The Platform is currently in a Beta Testnet phase.
+                By accessing or using GoodiesBox (the "Platform"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Platform. The Platform is currently in a Beta Testnet phase and all activity uses testnet tokens with no real-world value.
               </p>
             </section>
 
@@ -24,9 +24,9 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">3. Wallet Connection & Security</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">3. Wallet Connection and Security</h2>
               <p>
-                To use the Platform, you must connect a supported third-party wallet (e.g., Phantom, MetaMask). You are solely responsible for maintaining the security of your wallet and private keys. GoodiesBox never takes custody of your assets and cannot recover lost private keys.
+                To use the Platform, you must connect a supported third-party wallet (Phantom or MetaMask). You are solely responsible for maintaining the security of your wallet and private keys. GoodiesBox never takes custody of your assets and cannot recover lost private keys.
               </p>
             </section>
 
@@ -61,7 +61,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">8. Contact Information</h2>
               <p>
-                For questions about these Terms, please contact us via our official Discord or Twitter channels linked in the footer.
+                For questions about these Terms, please visit our <a href="https://github.com/synterlab/goodiesbox" target="_blank" rel="noreferrer">GitHub repository</a> or reach out via the links in the footer.
               </p>
             </section>
           </div>

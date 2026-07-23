@@ -32,7 +32,7 @@ export function WalletConnectModal({ children }: { children: React.ReactNode }) 
         </DialogHeader>
         <div className="flex flex-col gap-4 py-4">
           <div className="text-center text-xs font-medium text-[#FF3CAC] bg-[#FF3CAC]/10 py-1.5 px-3 rounded-full mx-auto animate-pulse">
-            DEVNET / TESTNET ONLY — FOR DEMO PURPOSES
+            DEVNET / TESTNET ONLY - BETA TESTNET
           </div>
           
           <Button 
