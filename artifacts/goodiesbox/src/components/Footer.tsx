@@ -28,6 +28,9 @@ export function Footer() {
                 <Github className="w-5 h-5" />
               </a>
             </div>
+            <a href="https://orynth.dev/projects/goodies-box" target="_blank" rel="noopener" className="inline-block mt-2">
+              <img src="https://orynth.dev/api/badge/goodies-box?theme=light&style=default" alt="Featured on Orynth" width="260" height="80" />
+            </a>
           </div>
 
           <div>
