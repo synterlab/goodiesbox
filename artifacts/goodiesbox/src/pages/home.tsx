@@ -306,6 +306,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Prediction Cards */}
+      <section className="py-24 bg-black/40 border-t border-white/10 relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-[#FF3CAC]/5 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded bg-white/5 border border-white/10 text-[10px] font-bold text-white/60 uppercase tracking-widest">
+                Hot Cards
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight leading-none">Featured <span className="text-[#00E5FF]">Cards</span></h2>
+            </div>
+            <Link href="/marketplace">
+              <Button variant="outline" className="border-white/20 hover:bg-white hover:text-black rounded-full font-black uppercase tracking-wider transition-colors">
+                Browse All <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {featuredCards.map((card, i) => (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <CardHover glowColor={card.gradientFrom + '80'}>
+                  <PredictionCard card={card} />
+                </CardHover>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Leaderboard Section */}
       <section className="py-24 bg-black/40 border-y border-white/10 relative overflow-hidden">
         <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-r from-[#00E5FF]/5 to-transparent pointer-events-none" />
