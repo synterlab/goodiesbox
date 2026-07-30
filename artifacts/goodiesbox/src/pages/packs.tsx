@@ -85,31 +85,38 @@ export default function Packs() {
                 className="bg-[#0A0A0F] border border-white/10 rounded-2xl overflow-hidden flex flex-col group hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,229,255,0.1)]"
               >
                 {/* Pack Image Area */}
-                <div className="h-64 relative flex items-center justify-center overflow-hidden bg-black/50">
+                <div className="h-56 relative flex items-center justify-center overflow-hidden">
                   <img
                     src={pack.imageUrl}
                     alt={pack.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700 scale-105 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 group-hover:scale-105 scale-100"
                     loading="lazy"
                   />
                   <div
                     className="absolute inset-0"
-                    style={{ background: `linear-gradient(to bottom, transparent 30%, #0A0A0F 100%)` }}
+                    style={{ background: `linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(10,10,15,0.95) 100%)` }}
                   />
 
-                  {/* Pack 3D object */}
+                  {/* Rarity glow overlay */}
                   <div
-                    className="w-32 h-44 rounded-xl relative z-10 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-6 group-hover:-translate-y-4"
+                    className="absolute inset-0 opacity-30"
+                    style={{ background: `radial-gradient(ellipse at center, ${pack.gradientFrom}60 0%, transparent 70%)` }}
+                  />
+
+                  {/* Pack card visual */}
+                  <div
+                    className="w-24 h-36 rounded-lg relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:-translate-y-3 shadow-2xl"
                     style={{
                       background: `linear-gradient(135deg, ${pack.gradientFrom}, ${pack.gradientTo})`,
-                      boxShadow: `0 20px 50px -10px ${pack.glowColor}`
+                      boxShadow: `0 15px 40px -8px ${pack.glowColor}, 0 0 20px ${pack.gradientFrom}40`
                     }}
                   >
-                    <div className="absolute inset-0 bg-black/20 mix-blend-overlay rounded-xl border border-white/30 neon-border"></div>
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-xl" />
-                    
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                      <Sparkles className="w-10 h-10" />
+                    <div className="absolute inset-0 rounded-lg border border-white/30 bg-gradient-to-tr from-white/20 to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <PackageOpen className="w-8 h-8 text-white/80 drop-shadow-lg" />
+                    </div>
+                    <div className="absolute bottom-2 left-0 right-0 text-center">
+                      <span className="text-[8px] font-black text-white/70 uppercase tracking-widest">Open</span>
                     </div>
                   </div>
                   

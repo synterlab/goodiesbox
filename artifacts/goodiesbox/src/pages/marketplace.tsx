@@ -105,15 +105,14 @@ export default function Marketplace() {
               </Button>
             </div>
           ) : (
-            /* Masonry-style layout via CSS columns */
-            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredCards.map((card, i) => (
                 <motion.div 
                   key={card.id} 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: (i % 8) * 0.05 }}
-                  className="break-inside-avoid bg-[#0A0A0F] border border-white/10 rounded-2xl p-3 hover:border-white/30 transition-colors group"
+                  className="bg-[#0A0A0F] border border-white/10 rounded-2xl p-3 hover:border-white/30 transition-colors group"
                 >
                   <CardHover glowColor={`rgba(${parseInt(card.gradientFrom.slice(1,3),16)}, ${parseInt(card.gradientFrom.slice(3,5),16)}, ${parseInt(card.gradientFrom.slice(5,7),16)}, 0.4)`}>
                     <PredictionCard card={card} />

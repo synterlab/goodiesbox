@@ -162,8 +162,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Right: Floating 3D Pack */}
-          <div className="w-full lg:w-2/5 flex justify-center lg:justify-end perspective-1000">
+          {/* Right: Floating 3D Pack - hidden on mobile to avoid overlap */}
+          <div className="hidden lg:flex w-full lg:w-2/5 justify-center lg:justify-end perspective-1000">
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
               animate={{ 
