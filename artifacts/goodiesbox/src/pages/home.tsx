@@ -390,11 +390,11 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2 z-0" />
-            <div className="absolute left-[28px] md:left-1/2 top-0 h-[60%] w-[2px] bg-gradient-to-b from-[#00E5FF] to-[#7B2FBE] -translate-x-1/2 z-0 shadow-[0_0_10px_#00E5FF]" />
+            {/* Vertical Line — left-aligned on mobile, centered on desktop */}
+            <div className="absolute left-7 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2 z-0" />
+            <div className="absolute left-7 md:left-1/2 top-0 h-[60%] w-[2px] bg-gradient-to-b from-[#00E5FF] to-[#7B2FBE] -translate-x-1/2 z-0 shadow-[0_0_10px_#00E5FF]" />
 
-            <div className="space-y-12 relative z-10">
+            <div className="space-y-8 md:space-y-12 relative z-10">
               {[
                 { quarter: "Q1 2026", title: "Beta Testnet Launch", desc: "Core packs, basic prediction cards, and Phantom wallet integration.", status: "completed" },
                 { quarter: "Q2 2026", title: "EVM Support + Sepolia", desc: "MetaMask support, cross-chain UI, and initial marketplace launch.", status: "completed" },
@@ -402,15 +402,17 @@ export default function Home() {
                 { quarter: "Q4 2026", title: "Mainnet Launch", desc: "Real money, real stakes. Migration of testnet rewards to mainnet airdrops.", status: "upcoming" },
                 { quarter: "2027", title: "DAO Governance", desc: "Community token launch. Holders vote on which events get card sets.", status: "upcoming" },
               ].map((item, i) => (
-                <div key={i} className={`flex flex-col md:flex-row gap-8 md:gap-0 items-start md:items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`w-full md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 pl-16'}`}>
-                    <div className="text-[#00E5FF] font-black uppercase tracking-widest text-sm mb-2">{item.quarter}</div>
-                    <h3 className={`text-2xl font-black mb-3 uppercase tracking-tight ${item.status === 'upcoming' ? 'text-white/50' : 'text-white'}`}>{item.title}</h3>
-                    <p className="text-white/60 leading-relaxed font-medium">{item.desc}</p>
+                /* Each row is `relative` so the node positions inside it, not the outer wrapper */
+                <div key={i} className={`relative min-h-[4rem] flex flex-col md:flex-row md:items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                  {/* Content — always pl-16 on mobile to clear the left-side timeline */}
+                  <div className={`pl-16 md:pl-0 w-full md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
+                    <div className="text-[#00E5FF] font-black uppercase tracking-widest text-xs md:text-sm mb-1 md:mb-2">{item.quarter}</div>
+                    <h3 className={`text-xl md:text-2xl font-black mb-2 md:mb-3 uppercase tracking-tight ${item.status === 'upcoming' ? 'text-white/50' : 'text-white'}`}>{item.title}</h3>
+                    <p className="text-sm md:text-base text-white/60 leading-relaxed font-medium">{item.desc}</p>
                   </div>
-                  
-                  {/* Timeline Node */}
-                  <div className="absolute left-[28px] md:left-1/2 -translate-x-1/2 flex items-center justify-center w-14 h-14 bg-[#0A0A0F] rounded-full border-[4px] border-[#0A0A0F]">
+
+                  {/* Timeline Node — centered vertically per-item on both mobile and desktop */}
+                  <div className="absolute left-7 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-14 h-14 bg-[#0A0A0F] rounded-full border-[4px] border-[#0A0A0F]">
                     {item.status === 'completed' ? (
                       <div className="w-8 h-8 rounded-full bg-[#00E5FF] flex items-center justify-center shadow-[0_0_15px_#00E5FF]">
                         <ShieldCheck className="w-4 h-4 text-black" />
@@ -423,7 +425,8 @@ export default function Home() {
                       <div className="w-8 h-8 rounded-full bg-white/10 border-2 border-white/20" />
                     )}
                   </div>
-                  
+
+                  {/* Spacer for desktop alternating layout */}
                   <div className="hidden md:block w-1/2" />
                 </div>
               ))}
