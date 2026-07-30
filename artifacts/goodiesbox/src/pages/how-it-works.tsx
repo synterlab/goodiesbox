@@ -1,236 +1,205 @@
 import { Layout } from '@/components/Layout';
+import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Wallet, PackageOpen, Trophy, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Flame, Star, Zap } from 'lucide-react';
-
-const RARITIES = [
-  { name: 'Common', pct: '60%', color: '#9CA3AF', desc: 'Baseline predictions on well-known outcomes.' },
-  { name: 'Rare', pct: '25%', color: '#00E5FF', desc: 'Specific calls with meaningful upside.' },
-  { name: 'Epic', pct: '12%', color: '#FF3CAC', desc: 'High-conviction niche predictions.' },
-  { name: 'Legendary', pct: '3%', color: '#FFD700', desc: 'Audacious calls. Massive multiplier if correct.' },
-];
 
 export default function HowItWorks() {
+  const steps = [
+    {
+      id: "01",
+      title: "Connect Wallet",
+      description: "No email. No password. No KYC. Just connect your Phantom wallet for Solana Devnet or MetaMask for EVM Sepolia testnet.",
+      details: "GoodiesBox is currently in Beta Testnet. All transactions use Devnet SOL or Sepolia ETH which you can get for free from public faucets.",
+      icon: Wallet,
+      color: "#00E5FF",
+      image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=800&q=80&fit=crop"
+    },
+    {
+      id: "02",
+      title: "Rip Packs",
+      description: "Visit the Goodie Store and purchase mystery packs. Each pack contains 3-5 random prediction cards for upcoming 2026 events.",
+      details: "Cards range from Common to Legendary rarity. Legendary cards represent highly specific, low-probability outcomes with massive potential upside.",
+      icon: PackageOpen,
+      color: "#FF3CAC",
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80&fit=crop"
+    },
+    {
+      id: "03",
+      title: "Enter Contests",
+      description: "Put your cards to work. Submit your predictions into category-specific contests (Sports, Crypto, Gaming) before the deadline.",
+      details: "When real-world events resolve, our oracle network verifies the outcome on-chain. If your card matches reality, you win a share of the prize pool.",
+      icon: Trophy,
+      color: "#7B2FBE",
+      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80&fit=crop"
+    }
+  ];
+
   return (
     <Layout>
-      <div className="pt-14 pb-24">
-        <div className="container mx-auto px-4 max-w-3xl">
-
-          {/* Header */}
-          <div className="text-center mb-14">
-            <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-xs font-bold text-[#00E5FF] uppercase tracking-widest">
-              Beta Testnet
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-5 uppercase tracking-tight">
-              How It <span className="text-[#00E5FF]">Works</span>
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-              GoodiesBox is a Web3 prediction card game on testnet. Here's exactly what happens from wallet connect to contest payout.
-            </p>
+      <div className="pt-24 pb-32 overflow-hidden">
+        
+        {/* Hero Section */}
+        <section className="container mx-auto px-4 mb-32 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-white/70"
+            >
+              Platform Guide
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 uppercase tracking-tight leading-[0.9]"
+            >
+              How It <span className="text-gradient-primary">Works</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+            >
+              The adrenaline of pack ripping meets the intellectual thrill of prediction markets. Here's how to play.
+            </motion.p>
           </div>
+        </section>
 
-          {/* Steps */}
-          <div className="space-y-0 mb-20">
-            {[
-              {
-                num: '01',
-                color: '#00E5FF',
-                title: 'Connect your wallet',
-                body: (
-                  <>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      GoodiesBox runs on <strong className="text-white">Solana Devnet</strong> (for Phantom users) and <strong className="text-white">Sepolia testnet</strong> (for MetaMask users). Click "Connect Wallet" in the top-right, choose your wallet, and approve the connection. No email. No sign-up. No KYC.
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Need testnet tokens? Grab <strong className="text-white">Devnet SOL</strong> from <a href="https://faucet.solana.com" target="_blank" rel="noopener" className="text-[#00E5FF] hover:underline">faucet.solana.com</a> or <strong className="text-white">Sepolia ETH</strong> from <a href="https://sepoliafaucet.com" target="_blank" rel="noopener" className="text-[#00E5FF] hover:underline">sepoliafaucet.com</a>. Both are free and instant.
-                    </p>
-                  </>
-                ),
-              },
-              {
-                num: '02',
-                color: '#FF3CAC',
-                title: 'Buy packs & reveal cards',
-                body: (
-                  <>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Head to the <Link href="/packs" className="text-[#FF3CAC] hover:underline font-medium">Packs store</Link>. Each pack costs testnet tokens and drops <strong className="text-white">3 random prediction cards</strong> when opened. Cards are minted on-chain to your wallet immediately.
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                      Every card represents a specific, time-bound, verifiable prediction tied to a real 2026 event — from Bitcoin price targets to Super Bowl LX results to GTA 6 launch week sales.
-                    </p>
-                    {/* Rarity table */}
-                    <div className="bg-card border border-border/50 rounded-xl overflow-hidden">
-                      <div className="grid grid-cols-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground border-b border-border/40 px-4 py-2.5">
-                        <span>Rarity</span>
-                        <span className="text-center">Drop Rate</span>
-                        <span className="col-span-2 text-right">What it means</span>
-                      </div>
-                      {RARITIES.map((r) => (
-                        <div key={r.name} className="grid grid-cols-4 px-4 py-3 border-b border-border/20 last:border-0 items-center">
-                          <span className="text-sm font-bold" style={{ color: r.color }}>{r.name}</span>
-                          <span className="text-sm font-mono text-center text-white">{r.pct}</span>
-                          <span className="col-span-2 text-xs text-muted-foreground text-right">{r.desc}</span>
-                        </div>
-                      ))}
+        {/* Steps Section */}
+        <section className="container mx-auto px-4 mb-32">
+          <div className="space-y-24 md:space-y-40">
+            {steps.map((step, i) => (
+              <motion.div 
+                key={step.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className={`flex flex-col ${i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
+              >
+                {/* Image side */}
+                <div className="w-full md:w-1/2 relative group">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-transparent z-10 rounded-3xl" />
+                  <div 
+                    className="absolute -inset-4 blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 z-0 rounded-full"
+                    style={{ background: step.color }}
+                  />
+                  <img 
+                    src={step.image} 
+                    alt={step.title} 
+                    className="w-full aspect-square object-cover rounded-3xl relative z-10 border border-white/10 grayscale-[50%] group-hover:grayscale-0 transition-all duration-700" 
+                  />
+                  
+                  {/* Floating badge */}
+                  <div className="absolute bottom-8 left-8 z-20 bg-black/80 backdrop-blur-xl border border-white/20 p-4 rounded-2xl flex items-center gap-4 shadow-2xl">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${step.color}20`, border: `1px solid ${step.color}50` }}>
+                      <step.icon className="w-6 h-6" style={{ color: step.color }} />
                     </div>
-                  </>
-                ),
-              },
-              {
-                num: '03',
-                color: '#7B2FBE',
-                title: 'Build your collection',
-                body: (
-                  <>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Cards you don't want can be listed on the <Link href="/marketplace" className="text-[#7B2FBE] hover:underline font-medium">Marketplace</Link> for other players to buy. Set your price in SOL, and the contract holds escrow until a buyer takes it.
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Strategy matters. Legendary Crypto cards that expire Q4 2026 are worth more early in the year. Common cards for events that already resolved are cheap floor buys for collectors.
-                    </p>
-                  </>
-                ),
-              },
-              {
-                num: '04',
-                color: '#FF3CAC',
-                title: 'Enter contests & collect payouts',
-                body: (
-                  <>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Active <Link href="/contests" className="text-[#FF3CAC] hover:underline font-medium">Contests</Link> accept card submissions during their entry window. Submit matching cards to a contest (e.g. a Crypto card to the Q2 Crypto Contest) and your entry is locked on-chain.
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      When the event resolves, <strong className="text-white">Chainlink</strong> and <strong className="text-white">Pyth oracles</strong> push the outcome on-chain. Correct predictions receive testnet prize tokens directly to their wallet — no claim button, no waiting room.
-                    </p>
-                  </>
-                ),
-              },
-            ].map((step, i) => (
-              <div key={i} className={`flex gap-5 md:gap-8 py-10 md:py-12 ${i < 3 ? 'border-b border-border/30' : ''}`}>
-                <div className="flex-shrink-0 pt-1">
-                  <div
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-black text-sm md:text-base"
-                    style={{ background: `${step.color}18`, color: step.color, border: `1px solid ${step.color}30` }}
-                  >
-                    {step.num}
+                    <div>
+                      <div className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-0.5">Step</div>
+                      <div className="text-xl font-black text-white leading-none">{step.id}</div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h2 className="text-lg md:text-2xl font-bold mb-4">{step.title}</h2>
-                  {step.body}
+
+                {/* Text side */}
+                <div className="w-full md:w-1/2 relative z-10">
+                  <div 
+                    className="text-8xl md:text-[150px] font-black absolute -top-16 md:-top-32 -left-8 md:-left-16 opacity-[0.03] select-none pointer-events-none"
+                    style={{ color: step.color }}
+                  >
+                    {step.id}
+                  </div>
+                  
+                  <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight">{step.title}</h2>
+                  <p className="text-xl text-white/80 mb-6 leading-relaxed font-medium">
+                    {step.description}
+                  </p>
+                  <p className="text-base text-white/40 leading-relaxed border-l-2 pl-4" style={{ borderColor: `${step.color}50` }}>
+                    {step.details}
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
+        </section>
 
-          {/* Card Burn mechanic */}
-          <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#FF3CAC] to-transparent" />
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#FF3CAC]/10 border border-[#FF3CAC]/30 flex items-center justify-center flex-shrink-0">
-                <Flame className="w-5 h-5 text-[#FF3CAC]" />
-              </div>
-              <div>
-                <h3 className="font-bold text-base md:text-lg mb-2">What happens when an event ends?</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Once an event resolves, associated cards are <strong className="text-white">locked and burned from active trading</strong>. They stay in your collection as historical proof — a permanent on-chain record that you called Bitcoin hitting $200K in 2026. Burned cards can't be relisted but they're yours forever.
-                </p>
+        {/* CTA Banner */}
+        <section className="container mx-auto px-4 mb-32">
+          <div className="relative rounded-3xl overflow-hidden border border-[#00E5FF]/30 p-12 md:p-20 text-center bg-[#0A0A0F]">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/10 to-[#FF3CAC]/10" />
+            <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+            
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">Ready to <span className="text-gradient-primary">Play?</span></h2>
+              <p className="text-xl text-white/70 mb-10">Get some testnet tokens and start building your collection.</p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/packs">
+                  <Button className="h-14 px-8 text-lg bg-[#FF3CAC] hover:bg-[#FF3CAC]/80 text-white rounded-full font-black uppercase tracking-wider glow-pulse-pink w-full sm:w-auto">
+                    Open Packs Now
+                  </Button>
+                </Link>
+                <Link href="/marketplace">
+                  <Button variant="outline" className="h-14 px-8 text-lg border-white/20 hover:bg-white/10 rounded-full font-black uppercase tracking-wider w-full sm:w-auto">
+                    Browse Market
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Tokenomics note */}
-          <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#7B2FBE] to-transparent" />
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#7B2FBE]/10 border border-[#7B2FBE]/30 flex items-center justify-center flex-shrink-0">
-                <Zap className="w-5 h-5 text-[#7B2FBE]" />
-              </div>
-              <div>
-                <h3 className="font-bold text-base md:text-lg mb-2">Testnet only — zero real money</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Every token used on GoodiesBox — pack prices, marketplace listings, contest prize pools — is <strong className="text-white">Devnet SOL or Sepolia ETH</strong> from public faucets. There is no mainnet. There is no presale. Nothing you do on this platform involves real currency. This is a beta testnet for stress-testing the prediction market mechanics before any mainnet launch.
-                </p>
-              </div>
-            </div>
+        {/* FAQ Section */}
+        <section className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground text-lg">Everything you need to know about GoodiesBox.</p>
           </div>
 
-          {/* Packs preview */}
-          <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#00E5FF] to-transparent" />
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center flex-shrink-0">
-                <Star className="w-5 h-5 text-[#00E5FF]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-base md:text-lg mb-2">Available pack types</h3>
-                <div className="grid grid-cols-2 gap-3 mt-4">
-                  {[
-                    { name: 'Starter Pack', price: '0.1 SOL', desc: '3 cards, Common–Rare pool' },
-                    { name: 'Crypto Pack', price: '0.5 SOL', desc: 'Crypto-only, boosted Epic rate' },
-                    { name: 'Sports Pack', price: '0.5 SOL', desc: 'Sports-only, boosted Epic rate' },
-                    { name: 'Founders Pack', price: '2.5 SOL', desc: '5 cards, guaranteed 1 Legendary' },
-                  ].map((p) => (
-                    <div key={p.name} className="bg-background/50 border border-border/40 rounded-xl p-3">
-                      <div className="font-bold text-sm mb-0.5">{p.name}</div>
-                      <div className="text-[#00E5FF] text-xs font-mono mb-1">{p.price}</div>
-                      <div className="text-muted-foreground text-xs">{p.desc}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5">
-                  <Link href="/packs">
-                    <Button className="bg-[#FF3CAC] hover:bg-[#FF3CAC]/80 text-white rounded-full font-bold text-sm h-10 px-6">
-                      Open Packs <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-white/10 px-2">
+              <AccordionTrigger className="text-lg md:text-xl font-bold hover:text-[#00E5FF] transition-colors py-6 text-left">
+                Is this real money?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-white/60 leading-relaxed pb-6">
+                No. GoodiesBox is currently running on Solana Devnet and EVM Sepolia testnets. All tokens used on the platform (Devnet SOL, Sepolia ETH, testnet USDC) have absolutely zero real-world value. This is a risk-free environment to test the platform.
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-2" className="border-white/10 px-2">
+              <AccordionTrigger className="text-lg md:text-xl font-bold hover:text-[#FF3CAC] transition-colors py-6 text-left">
+                How do predictions resolve?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-white/60 leading-relaxed pb-6">
+                We use decentralized oracle networks (like Chainlink and Pyth) to verify real-world outcomes. When a predicted event occurs (e.g., the Super Bowl ends), the oracle feeds the official result to our smart contracts, which automatically settle the contests and distribute prizes to the winning cards.
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-3" className="border-white/10 px-2">
+              <AccordionTrigger className="text-lg md:text-xl font-bold hover:text-[#7B2FBE] transition-colors py-6 text-left">
+                What happens to my cards after a contest?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-white/60 leading-relaxed pb-6">
+                If your card's prediction was correct, it becomes a "Winning" card and may grant you a share of the prize pool. Incorrect predictions are marked as "Resolved (Loss)". In both cases, you keep the card as a collectible in your wallet, representing your participation in that historical event.
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-4" className="border-white/10 px-2">
+              <AccordionTrigger className="text-lg md:text-xl font-bold hover:text-[#00E5FF] transition-colors py-6 text-left">
+                Can I trade cards without entering contests?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-white/60 leading-relaxed pb-6">
+                Yes! Many players operate solely on the Marketplace. If you pull a highly sought-after Legendary card but don't want to wait 6 months for the event to resolve, you can list it on the marketplace and sell it to someone who does. The value of cards fluctuates based on the perceived probability of the outcome.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </section>
 
-          {/* FAQ */}
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">FAQ</h2>
-            <Accordion type="single" collapsible className="w-full">
-              {[
-                {
-                  q: 'Is GoodiesBox free to play?',
-                  a: 'Yes. All packs are priced in Devnet SOL or Sepolia ETH, both available free from public faucets. There is no purchase required with real money.',
-                },
-                {
-                  q: 'How are event outcomes verified?',
-                  a: 'Chainlink and Pyth oracles push real-world outcomes on-chain automatically. The smart contracts resolve the contest without any admin action, so results cannot be tampered with.',
-                },
-                {
-                  q: 'Can I trade cards after an event finishes?',
-                  a: 'No. Once the associated event resolves, cards are locked and removed from active trading. They remain in your wallet as non-transferable collectibles.',
-                },
-                {
-                  q: 'What wallets are supported?',
-                  a: 'Phantom (Solana Devnet) and MetaMask (Sepolia). Mobile wallet support via WalletConnect is planned for a future release.',
-                },
-                {
-                  q: 'Will there be a mainnet launch?',
-                  a: 'The current testnet phase is for stress-testing mechanics and gathering community feedback. Mainnet decisions depend on how the beta performs. No date is confirmed.',
-                },
-                {
-                  q: 'Where is the source code?',
-                  a: 'Fully open-source on GitHub at github.com/synterlab/goodiesbox. Smart contracts, frontend, and data layer are all public.',
-                },
-              ].map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-border/40">
-                  <AccordionTrigger className="hover:text-[#00E5FF] text-left text-sm md:text-base">{item.q}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">{item.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-
-        </div>
       </div>
     </Layout>
   );

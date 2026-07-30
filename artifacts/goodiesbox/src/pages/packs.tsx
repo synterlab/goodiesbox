@@ -1,108 +1,169 @@
 import { Layout } from '@/components/Layout';
-import { mockPacks } from '@/data/packs';
+import { mockPacks, Pack } from '@/data/packs';
 import { PackOpeningModal } from '@/components/PackOpeningModal';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { PackageOpen, Sparkles } from 'lucide-react';
+import { PackageOpen, Sparkles, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Packs() {
-  const [selectedPack, setSelectedPack] = useState<typeof mockPacks[0] | null>(null);
+  const [selectedPack, setSelectedPack] = useState<Pack | null>(null);
+  const [activeTheme, setActiveTheme] = useState<string>('All');
+
+  const themes = ['All', 'Sports', 'Crypto', 'Entertainment', 'Gaming'];
+
+  const filteredPacks = mockPacks.filter(pack => 
+    activeTheme === 'All' || pack.theme === activeTheme
+  );
 
   return (
     <Layout>
-      <div className="pt-16 pb-24">
+      <div className="pt-24 pb-32">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mb-16">
-            <div className="inline-block mb-4 text-xs font-bold px-3 py-1 rounded-full bg-[#FF3CAC]/10 text-[#FF3CAC] border border-[#FF3CAC]/30 uppercase tracking-widest">
-              Beta Testnet
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
-              Goodie <span className="text-[#FF3CAC]">Store</span>
-            </h1>
-            <p className="text-xl text-muted-foreground">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-[#FF3CAC]/10 border border-[#FF3CAC]/30 text-xs font-bold text-[#FF3CAC] uppercase tracking-widest"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF3CAC] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF3CAC]" />
+              </span>
+              Goodie Store
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight"
+            >
+              Secure The <span className="text-gradient-primary">Bag</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-muted-foreground leading-relaxed"
+            >
               Purchase mystery packs to collect 2026 prediction cards. Higher tier packs guarantee rarer cards.
-            </p>
+            </motion.p>
+          </div>
+
+          {/* Filter Pills */}
+          <div className="flex gap-3 mb-12 overflow-x-auto pb-4 scrollbar-hide">
+            {themes.map((theme) => (
+              <button
+                key={theme}
+                onClick={() => setActiveTheme(theme)}
+                className="relative px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider whitespace-nowrap"
+              >
+                {activeTheme === theme && (
+                  <motion.div
+                    layoutId="pack-filter-bg"
+                    className="absolute inset-0 bg-white rounded-full"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className={`relative z-10 transition-colors ${activeTheme === theme ? 'text-black' : 'text-white/60 hover:text-white'}`}>
+                  {theme}
+                </span>
+                {activeTheme !== theme && (
+                  <div className="absolute inset-0 border border-white/10 rounded-full" />
+                )}
+              </button>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {mockPacks.map((pack) => (
-              <div
+            {filteredPacks.map((pack, i) => (
+              <motion.div
                 key={pack.id}
-                className="bg-card border border-border/50 rounded-2xl overflow-hidden flex flex-col group hover:border-white/20 transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-[#0A0A0F] border border-white/10 rounded-2xl overflow-hidden flex flex-col group hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,229,255,0.1)]"
               >
                 {/* Pack Image Area */}
-                <div className="h-56 relative flex items-center justify-center overflow-hidden">
-                  {/* Real background image */}
+                <div className="h-64 relative flex items-center justify-center overflow-hidden bg-black/50">
                   <img
                     src={pack.imageUrl}
                     alt={pack.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500 scale-105 group-hover:scale-110 transition-transform"
+                    className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700 scale-105 group-hover:scale-110"
                     loading="lazy"
                   />
-                  {/* Gradient overlay */}
                   <div
                     className="absolute inset-0"
-                    style={{ background: `linear-gradient(to bottom, transparent 40%, #13131A 100%)` }}
+                    style={{ background: `linear-gradient(to bottom, transparent 30%, #0A0A0F 100%)` }}
                   />
-                  <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
                   {/* Pack 3D object */}
                   <div
-                    className="w-28 h-36 rounded-xl relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3 group-hover:-translate-y-2"
+                    className="w-32 h-44 rounded-xl relative z-10 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-6 group-hover:-translate-y-4"
                     style={{
                       background: `linear-gradient(135deg, ${pack.gradientFrom}, ${pack.gradientTo})`,
-                      boxShadow: `0 20px 40px -10px ${pack.glowColor}`
+                      boxShadow: `0 20px 50px -10px ${pack.glowColor}`
                     }}
                   >
-                    <div className="absolute inset-0 bg-black/10 mix-blend-overlay rounded-xl border border-white/20"></div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/60">
-                      <Sparkles className="w-8 h-8" />
+                    <div className="absolute inset-0 bg-black/20 mix-blend-overlay rounded-xl border border-white/30 neon-border"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-xl" />
+                    
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                      <Sparkles className="w-10 h-10" />
                     </div>
                   </div>
+                  
+                  {/* Countdown Badge - if legendary, show it opening soon */}
+                  {pack.rarity === 'Legendary' && (
+                    <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-[#FF3CAC]/50 rounded-full px-3 py-1.5 flex items-center gap-1.5 z-20 shadow-[0_0_15px_rgba(255,60,172,0.3)]">
+                      <Clock className="w-3.5 h-3.5 text-[#FF3CAC]" />
+                      <span className="text-[10px] font-bold text-[#FF3CAC] uppercase tracking-wider">Opens in 2d 14h</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Pack Details */}
-                <div className="p-5 flex-1 flex flex-col">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-bold leading-tight">{pack.name}</h3>
-                    <span className={`text-[10px] uppercase font-bold px-2 py-1 rounded bg-white/5 border border-white/10 flex-shrink-0 ml-2 ${
-                      pack.rarity === 'Legendary' ? 'text-[#FFD700]' :
-                      pack.rarity === 'Premium' ? 'text-[#00E5FF]' : 'text-gray-400'
+                <div className="p-6 flex-1 flex flex-col relative z-20 bg-[#0A0A0F]">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-black leading-tight tracking-tight">{pack.name}</h3>
+                    <span className={`animate-shimmer text-[10px] uppercase font-black px-2.5 py-1 rounded bg-white/5 border border-white/10 flex-shrink-0 ml-2 ${
+                      pack.rarity === 'Legendary' ? 'text-[#FFD700] border-[#FFD700]/30 shadow-[0_0_10px_rgba(255,215,0,0.2)]' :
+                      pack.rarity === 'Premium' ? 'text-[#00E5FF] border-[#00E5FF]/30 shadow-[0_0_10px_rgba(0,229,255,0.2)]' : 'text-gray-400'
                     }`}>
                       {pack.rarity}
                     </span>
                   </div>
 
-                  <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed">
+                  <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed font-medium">
                     {pack.description}
                   </p>
 
-                  <div className="flex items-center justify-between text-sm mb-5 pb-5 border-b border-white/10">
-                    <div>
-                      <span className="text-muted-foreground block text-xs">Contains</span>
-                      <span className="font-bold">{pack.cardsPerPack} Cards</span>
+                  <div className="flex items-center justify-between text-sm mb-6 pb-6 border-b border-white/10">
+                    <div className="bg-white/5 px-3 py-2 rounded-lg border border-white/5">
+                      <span className="text-white/40 block text-[9px] uppercase font-bold tracking-wider mb-1">Contains</span>
+                      <span className="font-black text-sm">{pack.cardsPerPack} Cards</span>
                     </div>
-                    <div className="text-right">
-                      <span className="text-muted-foreground block text-xs">Available</span>
-                      <span className="font-bold text-[#FF3CAC]">{pack.available}</span>
+                    <div className="text-right bg-white/5 px-3 py-2 rounded-lg border border-white/5">
+                      <span className="text-white/40 block text-[9px] uppercase font-bold tracking-wider mb-1">Available</span>
+                      <span className="font-black text-sm text-gradient-primary">{pack.available}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center justify-between gap-4">
                     <div>
-                      <div className="text-lg font-bold text-[#00E5FF]">{pack.priceSOL} SOL</div>
-                      <div className="text-xs text-muted-foreground">{pack.priceETH} ETH</div>
+                      <div className="text-xl font-black text-[#00E5FF]">{pack.priceSOL} SOL</div>
+                      <div className="text-xs text-muted-foreground font-mono">{pack.priceETH} ETH</div>
                     </div>
                     <Button
                       onClick={() => setSelectedPack(pack)}
-                      className="bg-white text-black hover:bg-gray-200 font-bold px-5 flex-shrink-0"
+                      className="bg-white text-black hover:bg-[#00E5FF] hover:text-black font-black uppercase tracking-wider px-6 h-12 flex-shrink-0 transition-colors"
                     >
-                      <PackageOpen className="w-4 h-4 mr-2" />
-                      Buy Pack
+                      <PackageOpen className="w-5 h-5 mr-2" />
+                      Buy
                     </Button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
