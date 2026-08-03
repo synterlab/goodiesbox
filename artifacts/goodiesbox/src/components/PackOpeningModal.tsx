@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Gift } from 'lucide-react';
+import { X, Gift } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Pack } from '@/data/packs';
 import { Card, mockCards } from '@/data/cards';
@@ -90,22 +90,26 @@ export function PackOpeningModal({ pack, isOpen, onClose }: PackOpeningModalProp
               onClick={phase === 'idle' ? handleOpenClick : undefined}
             >
               <div 
-                className="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl flex items-center justify-center relative neon-border"
-                style={{
-                  background: `linear-gradient(135deg, ${pack.gradientFrom}, ${pack.gradientTo})`,
-                  boxShadow: `0 0 100px ${pack.glowColor}`
-                }}
+                className="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl flex items-center justify-center relative neon-border overflow-hidden"
+                style={{ boxShadow: `0 0 100px ${pack.glowColor}, 0 0 40px ${pack.gradientFrom}60` }}
               >
-                <div className="absolute inset-0 bg-black/20 mix-blend-overlay rounded-2xl"></div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-2xl" />
+                {/* AI pack artwork */}
+                <img
+                  src={pack.packImageUrl}
+                  alt={pack.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                {/* Gradient overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 rounded-2xl" />
+                {/* Holographic shimmer */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/5 mix-blend-overlay rounded-2xl" />
+                {/* Neon border */}
+                <div className="absolute inset-0 rounded-2xl border border-white/25" />
                 
-                <div className="text-center p-8 relative z-10 flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center mb-6 border border-white/20 shadow-2xl">
-                    <Sparkles className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-black text-white uppercase tracking-tight leading-none mb-3">{pack.name}</h3>
-                  <div className="bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-white/80 text-xs font-bold uppercase tracking-widest">
-                    Click to Rip
+                <div className="text-center px-8 pb-8 relative z-10 flex flex-col items-end justify-end h-full w-full">
+                  <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight leading-none mb-3 drop-shadow-lg">{pack.name}</h3>
+                  <div className="bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-white/90 text-xs font-black uppercase tracking-widest">
+                    ✦ Tap to Rip
                   </div>
                 </div>
               </div>

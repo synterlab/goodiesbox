@@ -107,19 +107,22 @@ export default function Packs() {
 
                   {/* Pack card visual */}
                   <div
-                    className="w-24 h-36 rounded-lg relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:-translate-y-3 shadow-2xl"
-                    style={{
-                      background: `linear-gradient(135deg, ${pack.gradientFrom}, ${pack.gradientTo})`,
-                      boxShadow: `0 15px 40px -8px ${pack.glowColor}, 0 0 20px ${pack.gradientFrom}40`
-                    }}
+                    className="w-28 h-40 rounded-xl relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:-translate-y-3 shadow-2xl overflow-hidden"
+                    style={{ boxShadow: `0 20px 50px -8px ${pack.glowColor}, 0 0 30px ${pack.gradientFrom}50` }}
                   >
-                    <div className="absolute inset-0 rounded-lg border border-white/30 bg-gradient-to-tr from-white/20 to-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <PackageOpen className="w-8 h-8 text-white/80 drop-shadow-lg" />
+                    <img
+                      src={pack.packImageUrl}
+                      alt={pack.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    {/* Holographic overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/5 mix-blend-overlay" />
+                    {/* Bottom label */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent pt-4 pb-1.5 text-center">
+                      <span className="text-[7px] font-black text-white/80 uppercase tracking-widest">Open</span>
                     </div>
-                    <div className="absolute bottom-2 left-0 right-0 text-center">
-                      <span className="text-[8px] font-black text-white/70 uppercase tracking-widest">Open</span>
-                    </div>
+                    {/* Neon border glow */}
+                    <div className="absolute inset-0 rounded-xl border border-white/20" />
                   </div>
                   
                   {/* Countdown Badge - if legendary, show it opening soon */}

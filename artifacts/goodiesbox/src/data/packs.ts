@@ -12,6 +12,7 @@ export interface Pack {
   gradientTo: string;
   glowColor: string;
   imageUrl: string;
+  packImageUrl: string;
 }
 
 export const mockPacks: Pack[] = [
@@ -29,6 +30,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#7B2FBE",
     glowColor: "rgba(0, 229, 255, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-crypto-alpha.jpg",
   },
   {
     id: "pack-2",
@@ -44,6 +46,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#2B86C5",
     glowColor: "rgba(255, 60, 172, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1566132127697-4524fea60007?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-sports-legends.jpg",
   },
   {
     id: "pack-3",
@@ -59,6 +62,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#FF8C00",
     glowColor: "rgba(255, 215, 0, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-god-mode.jpg",
   },
   {
     id: "pack-4",
@@ -74,6 +78,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#00E5FF",
     glowColor: "rgba(20, 241, 149, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-pop-culture.jpg",
   },
   {
     id: "pack-5",
@@ -89,6 +94,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#14F195",
     glowColor: "rgba(153, 69, 255, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-crypto-degens.jpg",
   },
   {
     id: "pack-6",
@@ -104,6 +110,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#FEB47B",
     glowColor: "rgba(255, 126, 95, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-esports-arena.jpg",
   },
   {
     id: "pack-7",
@@ -119,6 +126,7 @@ export const mockPacks: Pack[] = [
     gradientTo: "#2980B9",
     glowColor: "rgba(142, 68, 173, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-gridiron.jpg",
   },
   {
     id: "pack-8",
@@ -134,5 +142,6 @@ export const mockPacks: Pack[] = [
     gradientTo: "#F39C12",
     glowColor: "rgba(231, 76, 60, 0.5)",
     imageUrl: "https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=600&q=80&fit=crop",
+    packImageUrl: "/packs/pack-blockbuster.jpg",
   }
 ];
