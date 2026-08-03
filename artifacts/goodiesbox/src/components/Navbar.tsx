@@ -2,9 +2,10 @@ import { Link, useLocation } from 'wouter';
 import { useWallet } from '@/contexts/WalletContext';
 import { WalletConnectModal } from './WalletConnectModal';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Gift } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { GoodiesBoxMark } from './GoodiesBoxLogo';
 
 export function Navbar() {
   const [location] = useLocation();
@@ -37,7 +38,9 @@ export function Navbar() {
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group relative z-50">
-          <Gift className="w-6 h-6 text-[#00E5FF] group-hover:rotate-12 transition-transform" />
+          <span className="group-hover:scale-110 transition-transform duration-200">
+            <GoodiesBoxMark size={28} />
+          </span>
           <span className="font-black text-xl tracking-tight text-gradient-primary">
             GoodiesBox
           </span>

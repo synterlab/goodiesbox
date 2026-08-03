@@ -53,22 +53,47 @@
   <rect x="0" y="0" width="1200" height="2" fill="url(#logoGrad)" opacity="0.6"/>
 
   <!-- === LEFT: Logo + copy === -->
-  <!-- Gift icon -->
-  <g transform="translate(90, 175)">
+  <!-- GoodiesBox logomark — torn-lid box with star burst -->
+  <defs>
+    <linearGradient id="ogStarGrad" x1="130" y1="170" x2="130" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFE600"/>
+      <stop offset="50%" stop-color="#FF3CAC"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <linearGradient id="ogBoxFill" x1="90" y1="230" x2="180" y2="310" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111124"/>
+      <stop offset="100%" stop-color="#0A0A18"/>
+    </linearGradient>
+    <filter id="ogGlowCyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ogGlowStar" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g transform="translate(90, 165)">
     <!-- Box body -->
-    <rect x="4" y="36" width="52" height="32" rx="4" fill="#1A1A2E" stroke="#00E5FF" stroke-width="1.5"/>
-    <!-- Lid -->
-    <rect x="0" y="25" width="60" height="13" rx="3" fill="#1A1A2E" stroke="#00E5FF" stroke-width="1.5"/>
-    <!-- Ribbon H -->
-    <rect x="25" y="25" width="10" height="13" fill="url(#logoGrad)" opacity="0.8"/>
-    <!-- Ribbon V -->
-    <rect x="25" y="38" width="10" height="30" fill="url(#logoGrad)" opacity="0.6"/>
-    <!-- Bow left -->
-    <path d="M30 25 Q18 10 10 14 Q4 18 10 22 Q18 26 30 25Z" fill="url(#logoGrad)" opacity="0.95"/>
-    <!-- Bow right -->
-    <path d="M30 25 Q42 10 50 14 Q56 18 50 22 Q42 26 30 25Z" fill="url(#logoGrad)" opacity="0.95"/>
-    <!-- Knot -->
-    <circle cx="30" cy="25" r="4" fill="#FF3CAC"/>
+    <path d="M0 68 L88 68 L88 130 Q88 136 82 136 L6 136 Q0 136 0 130 Z"
+          fill="url(#ogBoxFill)" stroke="#00E5FF" stroke-width="4"
+          filter="url(#ogGlowCyan)"/>
+    <!-- Vertical ribbon -->
+    <rect x="37" y="68" width="14" height="68" fill="url(#logoGrad)" opacity="0.28"/>
+    <!-- Torn lid left -->
+    <path d="M0 44 L41 68 L0 68 Z" fill="url(#logoGrad)" opacity="0.95"/>
+    <!-- Torn lid right -->
+    <path d="M88 44 L47 68 L88 68 Z" fill="url(#logoGrad)" opacity="0.95"/>
+    <!-- Lid edge -->
+    <line x1="0" y1="44" x2="88" y2="44" stroke="url(#logoGrad)" stroke-width="3.5" opacity="0.5"/>
+    <!-- 4-point star burst -->
+    <path d="M44 8 L50 30 L74 32 L56 46 L63 68 L44 55 L25 68 L32 46 L14 32 L38 30 Z"
+          fill="url(#ogStarGrad)" filter="url(#ogGlowStar)"/>
+    <!-- Inner diamond -->
+    <path d="M44 30 L50 42 L44 54 L38 42 Z" fill="#FFE600" opacity="0.95"/>
+    <!-- Sparkle dots -->
+    <circle cx="8" cy="28" r="4" fill="#00E5FF" opacity="0.7"/>
+    <circle cx="82" cy="24" r="4.5" fill="#FF3CAC" opacity="0.7"/>
   </g>
 
   <!-- GoodiesBox text -->
