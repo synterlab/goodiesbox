@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +8,7 @@ import { WalletConnectModal } from '@/components/WalletConnectModal';
 export default function Login() {
   return (
     <Layout>
+      <SEO title="Sign In" description="Sign in to your GoodiesBox account to manage your prediction cards, enter contests, and track your winnings." />
       <div className="min-h-[80vh] flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">

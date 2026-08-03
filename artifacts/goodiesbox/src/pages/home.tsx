@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
@@ -69,6 +70,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-24 pb-16">
         {/* Background Glowing Orbs */}

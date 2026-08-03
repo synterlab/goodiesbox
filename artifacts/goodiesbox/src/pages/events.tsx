@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
@@ -39,6 +40,7 @@ export default function Events() {
 
   return (
     <Layout>
+      <SEO title="Upcoming Events" description="Explore upcoming real-world events on GoodiesBox — sports, crypto, and entertainment. Collect prediction cards for each event and win when you're right." />
       <div className="pt-16 pb-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mb-16">

@@ -1,8 +1,10 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 
 export default function Terms() {
   return (
     <Layout>
+      <SEO title="Terms of Service" description="Read the GoodiesBox Terms of Service. The platform is in Beta Testnet — all tokens are testnet-only and have no real-world value." />
       <div className="pt-16 pb-24">
         <div className="container mx-auto px-4 max-w-3xl prose prose-invert prose-p:text-muted-foreground prose-a:text-[#00E5FF]">
           <h1 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tight">Terms of Service</h1>

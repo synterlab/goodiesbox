@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Timer, Users, Trophy, ChevronRight, Star } from 'lucide-react';
 import { Link } from 'wouter';
@@ -49,6 +50,7 @@ export default function Contests() {
 
   return (
     <Layout>
+      <SEO title="Live Contests" description="Enter your prediction cards into live contests and win testnet prizes. Compete in sports, crypto, and entertainment prediction pools on GoodiesBox." />
       <div className="pt-24 pb-32">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mb-16">
@@ -101,7 +103,7 @@ export default function Contests() {
                 >
                   {/* Background Image & Gradient */}
                   <div className="absolute inset-0 z-0">
-                    <img src={contest.bgImage} alt="" className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-700 group-hover:scale-105" />
+                    <img src={contest.bgImage} alt="" role="presentation" className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/90 to-[#0A0A0F]/60" />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0F] to-transparent opacity-80" />
                   </div>

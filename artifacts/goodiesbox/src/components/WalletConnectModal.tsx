@@ -54,7 +54,7 @@ export function WalletConnectModal({ children }: { children: React.ReactNode }) 
           </Button>
 
           <p className="text-center text-sm text-muted-foreground mt-4">
-            New to wallets? <a href="#" className="text-[#00E5FF] hover:underline">Learn more</a>
+            New to wallets? <a href="/how-it-works" className="text-[#00E5FF] hover:underline">Learn more</a>
           </p>
         </div>
       </DialogContent>

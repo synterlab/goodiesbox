@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { CardHover } from '@/components/CardHover';
 import { mockCards } from '@/data/cards';
 import { PredictionCard } from '@/components/PredictionCard';
@@ -43,6 +44,7 @@ export default function Marketplace() {
 
   return (
     <Layout>
+      <SEO title="Card Marketplace" description="Browse and trade prediction cards on the GoodiesBox marketplace. Find rare and legendary cards for upcoming events on Solana and EVM testnets." />
       <div className="pt-24 pb-32 min-h-screen">
         <div className="container mx-auto px-4">
           

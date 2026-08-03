@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 export default function Register() {
   return (
     <Layout>
+      <SEO title="Create Account" description="Create your GoodiesBox account and join the beta testnet. Connect your Phantom or MetaMask wallet to start opening packs and collecting prediction cards." />
       <div className="min-h-[80vh] flex items-center justify-center p-4 py-16">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">

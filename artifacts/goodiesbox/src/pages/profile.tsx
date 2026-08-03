@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { useWallet } from '@/contexts/WalletContext';
 import { Redirect, Link } from 'wouter';
 import { CardHover } from '@/components/CardHover';
@@ -31,6 +32,7 @@ export default function Profile() {
 
   return (
     <Layout>
+      <SEO title="My Profile" description="View your GoodiesBox profile, wallet balance, owned prediction cards, and contest history." />
       <div className="pt-12 pb-24">
         <div className="container mx-auto px-4">
           
@@ -51,8 +53,8 @@ export default function Profile() {
                 <div className="flex flex-wrap gap-3 items-center">
                   <div className="flex items-center gap-2 bg-black/50 border border-white/10 rounded-lg px-3 py-1.5 text-sm font-mono text-muted-foreground">
                     {address.slice(0, 8)}...{address.slice(-6)}
-                    <button onClick={copyAddress} className="hover:text-white ml-2"><Copy className="w-3 h-3" /></button>
-                    <a href={getExplorerLink()} target="_blank" rel="noreferrer" className="hover:text-white"><ExternalLink className="w-3 h-3" /></a>
+                    <button onClick={copyAddress} aria-label="Copy wallet address" className="hover:text-white ml-2 min-w-[32px] min-h-[32px] inline-flex items-center justify-center"><Copy className="w-3.5 h-3.5" /></button>
+                    <a href={getExplorerLink()} target="_blank" rel="noreferrer" aria-label="View on block explorer" className="hover:text-white min-w-[32px] min-h-[32px] inline-flex items-center justify-center"><ExternalLink className="w-3.5 h-3.5" /></a>
                   </div>
                   
                   <div className="text-xs font-bold px-2 py-1 rounded bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/30 uppercase">

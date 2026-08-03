@@ -1,8 +1,10 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 
 export default function Privacy() {
   return (
     <Layout>
+      <SEO title="Privacy Policy" description="Read the GoodiesBox Privacy Policy. We collect minimal data necessary to operate the platform and never sell your personal information." />
       <div className="pt-16 pb-24">
         <div className="container mx-auto px-4 max-w-3xl prose prose-invert prose-p:text-muted-foreground prose-a:text-[#FF3CAC]">
           <h1 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tight">Privacy Policy</h1>

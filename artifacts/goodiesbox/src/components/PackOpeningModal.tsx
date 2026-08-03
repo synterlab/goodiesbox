@@ -48,7 +48,7 @@ export function PackOpeningModal({ pack, isOpen, onClose }: PackOpeningModalProp
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && phase === 'idle' ? onClose() : null}>
-      <DialogContent className="max-w-[100vw] w-[100vw] h-[100dvh] bg-[#0A0A0F]/95 backdrop-blur-2xl border-none p-0 flex flex-col justify-center items-center overflow-hidden m-0 rounded-none sm:rounded-none">
+      <DialogContent className={`max-w-[100vw] w-[100vw] h-[100dvh] bg-[#0A0A0F]/95 backdrop-blur-2xl border-none p-0 flex flex-col justify-center items-center m-0 rounded-none sm:rounded-none ${phase === 'revealed' ? 'overflow-y-auto' : 'overflow-hidden'}`}>
         
         {/* Grain overlay for cinematic feel */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
@@ -90,7 +90,7 @@ export function PackOpeningModal({ pack, isOpen, onClose }: PackOpeningModalProp
               onClick={phase === 'idle' ? handleOpenClick : undefined}
             >
               <div 
-                className="w-72 h-96 rounded-2xl flex items-center justify-center relative neon-border"
+                className="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl flex items-center justify-center relative neon-border"
                 style={{
                   background: `linear-gradient(135deg, ${pack.gradientFrom}, ${pack.gradientTo})`,
                   boxShadow: `0 0 100px ${pack.glowColor}`
@@ -117,18 +117,18 @@ export function PackOpeningModal({ pack, isOpen, onClose }: PackOpeningModalProp
               key="cards"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="w-full px-4 md:px-12 flex flex-col items-center justify-center h-full z-10"
+              className="w-full px-4 md:px-12 flex flex-col items-center z-10 py-20 min-h-full"
             >
               <motion.h2 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="absolute top-12 text-4xl md:text-5xl font-black text-white uppercase tracking-tight text-center"
+                className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight text-center mb-8"
               >
                 Pack <span className="text-gradient-primary">Ripped</span>
               </motion.h2>
               
-              <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 perspective-1000 w-full max-w-7xl mt-12">
+              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-10 perspective-1000 w-full max-w-7xl">
                 {drawnCards.map((card, i) => {
                   // Calculate dramatic fanning out positions
                   const totalCards = drawnCards.length;
@@ -164,7 +164,7 @@ export function PackOpeningModal({ pack, isOpen, onClose }: PackOpeningModalProp
                         // Flip animation
                         rotateY: { duration: 0.8, type: 'spring', damping: 15 }
                       }}
-                      className="w-[200px] h-[300px] sm:w-[260px] sm:h-[390px] relative cursor-pointer group"
+                      className="w-[140px] h-[210px] sm:w-[200px] sm:h-[300px] relative cursor-pointer group"
                       onClick={() => handleFlip(i)}
                       style={{ transformStyle: 'preserve-3d' }}
                     >
@@ -199,11 +199,11 @@ export function PackOpeningModal({ pack, isOpen, onClose }: PackOpeningModalProp
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ delay: 0.6, type: "spring" }}
-                  className="absolute bottom-12"
+                  className="mt-10"
                 >
                   <Button 
                     onClick={onClose}
-                    className="bg-white hover:bg-gray-200 text-black font-black px-12 py-7 text-lg rounded-full uppercase tracking-widest shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all"
+                    className="bg-white hover:bg-gray-200 text-black font-black px-10 py-6 text-lg rounded-full uppercase tracking-widest shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all"
                   >
                     Claim Cards
                   </Button>

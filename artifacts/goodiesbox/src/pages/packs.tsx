@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { mockPacks, Pack } from '@/data/packs';
 import { PackOpeningModal } from '@/components/PackOpeningModal';
 import { useState } from 'react';
@@ -18,6 +19,7 @@ export default function Packs() {
 
   return (
     <Layout>
+      <SEO title="Buy Packs" description="Buy mystery prediction card packs on Solana Devnet and EVM testnets. Open them to collect rare outcome cards and enter contests to win testnet prizes." />
       <div className="pt-24 pb-32">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mb-16">

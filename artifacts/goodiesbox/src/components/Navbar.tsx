@@ -88,7 +88,7 @@ export function Navbar() {
                 <div className="text-sm font-medium bg-muted px-3 py-1 rounded-full relative z-10">
                   {address.slice(0, 4)}...{address.slice(-4)}
                 </div>
-                <Button variant="ghost" size="sm" onClick={disconnect} className="h-7 w-7 p-0 rounded-full relative z-10 hover:bg-destructive/20 hover:text-destructive">
+                <Button variant="ghost" size="sm" onClick={disconnect} aria-label="Disconnect wallet" className="h-9 w-9 p-0 rounded-full relative z-10 hover:bg-destructive/20 hover:text-destructive">
                   <X className="h-4 w-4" />
                 </Button>
               </div>
@@ -106,8 +106,11 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden p-2 text-foreground relative z-50"
+          className="md:hidden p-3 text-foreground relative z-50 min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>

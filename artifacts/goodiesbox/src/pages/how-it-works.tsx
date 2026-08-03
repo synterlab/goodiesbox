@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Wallet, PackageOpen, Trophy, ArrowRight } from 'lucide-react';
@@ -38,6 +39,7 @@ export default function HowItWorks() {
 
   return (
     <Layout>
+      <SEO title="How It Works" description="Learn how GoodiesBox works — connect your wallet, buy mystery packs, collect prediction cards, and enter contests to win testnet prizes on Solana and EVM." />
       <div className="pt-24 pb-32 overflow-hidden">
         
         {/* Hero Section */}
